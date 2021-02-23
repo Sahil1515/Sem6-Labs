@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Question1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#image1").animate({ left: '300px' },1000);
+                $("#table1").animate({ left: '300px' },1000);
+            })
+        });
+    </script>
+
+    <style>
+        table,
+        th,
+        td {
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height: 5ch;"></div>
+    <table id='table1' style="width: 50%;  position: relative">
+        <tr style="background-color: aqua;">
+            <th>Name</th>
+            <th>Section</th>
+            <th>roll no</th>
+        </tr>
+        <tr>
+            <td>Manik</td>
+            <td>C</td>
+            <td>12</td>
+        </tr>
+        <tr style="background-color: aqua;">
+            <td>Menaal</td>
+            <td>C</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>Harsha</td>
+            <td>C</td>
+            <td>14</td>
+        </tr>
+        <tr style="background-color: aqua;">
+            <td>Abhishek</td>
+            <td>C</td>
+            <td>15</td>
+        </tr>
+    </table>
+
+    <div style="height: 5ch;"> </div>
+
+    <img id='image1' src="image1.jpg" alt="image" style="height: 400px; width: 400px; position: relative;">
+
+    <div style="height: 10ch;"> </div>
+    <button >Click Me!</button>
+
+</body>
+
+</html><html lang="en">
+<head>
+	<title>Question2</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(
+		function(){
+			var value1=""
+			console.log("hi")
+			$('button').click(function(evt){
+				var buttonValue=$(this).html();
+
+				if(buttonValue=='Clr')
+				{
+					$('input').val('')
+					value1=''
+				}
+				else if(buttonValue=='=')
+				{
+					let x=eval(value1)
+					$('input').val(x)
+				}
+				else{
+					console.log(typeof(buttonValue))
+					console.log(buttonValue)
+					value1+=buttonValue
+					console.log(value1)
+					$('input').val(value1)
+				}
+
+
+			})
+		}
+
+		);
+	</script>
+	<style>
+		 td{
+			/* border-collapse: collapse; */
+			background-color: aqua;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	
+<table border='1'>
+	<tr>
+		<td colspan="3" ><input id='txt' type="text" id='col'></td>
+		<td><button>Clr</button></td>
+	</tr>
+	<tr>
+		<td><button>1</button></td>
+		<td><button>2</button></td>
+		<td><button>3</button></td>
+		<td><button>4</button></td>
+	</tr>
+	<tr>
+		<td><button>5</button></td>
+		<td><button>6</button></td>
+		<td><button>7</button></td>
+		<td><button>8</button></td>
+	</tr>
+	<tr>
+		<td><button>9</button></td>
+		<td><button>0</button></td>
+		<td><button>+</button></td>
+		<td><button>-</button></td>
+	</tr>
+	<tr>
+		<td><button>*</button> </td>
+		<td><button>/</button></td>
+		<td><button>.</button> </td>
+		<td><button>=</button> </td>
+	</tr>
+
+</table>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+
+<head>
+    <title>lab1_2</title>
+    <link rel="stylesheet" type="text/css" href="s3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('button').click(function () {
+                var x = $('.clr option:selected').text();
+                $('.poster').css("background", x);
+                var y = $('.font option:selected').text();
+                $('.poster').css("font-family", y);
+                var z = $('.fsiz option:selected').text() + "px";
+                $('.poster').css("font-size", z);
+                var a = $('input[name=border]:checked', '.frm').val();
+                $('.poster').css("border", a);
+                if ($('.check1').is(":checked") == true) {
+                    $('.pic').css("display", "block");
+
+                }
+                var b = $('.txt1').val();
+                $('.post').html(b);
+            })
+        });
+    </script>
+    <style>
+        .main {
+            background-color: powderblue;
+            height: auto;
+            width: 100%;
+            margin: auto;
+            display: flex;
+        }
+
+        .span {
+            margin: auto;
+        }
+
+        .drop {
+            flex-basis: 40%;
+        }
+
+        .poster {
+            flex-basis: 40%;
+            height: 700px;
+            width: 700px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main" style="display: block;">
+        <div class="drop">
+            <div class="clr">
+                <span>Choose a color</span>
+                <select id="color" name="color">
+                    <option value="Red">Red</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Pink">Pink</option>
+                </select>
+            </div>
+
+            <div style="height: 2ch;"> </div>
+
+            <div class="font">
+                <span>Choose a font</span>
+                <select id="fnt" name="fnt">
+                    <option value="serif">serif</option>
+                    <option value="fantasy">fantasy</option>
+                    <option value="cursive">cursive</option>
+                </select>
+            </div>
+            <div style="height: 2ch;"> </div>
+            <div class="fsiz">
+                <span>Choose font size</span>
+                <select id="color" name="color">
+                    <option value="17">17</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                </select>
+            </div>
+            <div style="height: 2ch;"> </div>
+            <form class="frm">
+                <div class="bdr">
+                    <span>Select border style</span><br>
+                    <input type="radio" name="border" class="border" value="none">
+                    <label for="none">none</label><br>
+                    <input type="radio" name="border" class="border" value="Double">
+                    <label for="Double">Double</label><br>
+                    <input type="radio" name="border" class="border" value="Solid">
+                    <label for="Solid">Solid</label><br>
+                </div>
+            </form>
+            <div style="height: 2ch;"> </div>
+            <div class="check">
+                <input type="checkbox" name="default" class="check1">
+                <label>Add default picture</label>
+            </div>
+            <div style="height: 2ch;"> </div>
+            <textarea class="txt">
+                <input type="text" name="text" class="txt1">
+            </textarea>
+            <div style="height: 2ch;"> </div>
+            <button>
+                submit
+            </button>
+            <div style="height: 2ch;"> </div>
+        </div>
+        <div class="poster" align='center'; height='100px'>
+
+            <div class="post">
+
+            </div>
+            <div class="pic" align='center'>
+                <div style="height: 100px;"></div>
+                <img src="images.jpeg" width="200px" height="200px" coords=34,44,270,350>
+            </div>
+        </div>
+        <div style="height: 2ch;"> </div>
+    </div>
+</body>
+
+</html><!DOCTYPE html>
+<html>
+
+<head>
+    <title>lab1_2</title>
+    <link rel="stylesheet" type="text/css" href="s4.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('button').click(function () {
+                var mcst, lcst;
+                var x = $('.clr option:selected').text();
+                var y = parseInt($('.txt1').val());
+                var z = parseInt($('.txt2').val());
+                var tot1 = parseInt('0'), tot2 = parseInt('0');
+                if (isNaN(y)) {
+                    y = parseInt("0");
+                }
+                if (isNaN(z)) {
+                    z = parseInt("0");
+                }
+                if (x == 'HP') {
+                    mcst = parseInt("10000");
+                    lcst = parseInt("30000");
+                }
+                else if (x == "Nokia") {
+                    mcst = parseInt("7000");
+                    lcst = parseInt("26000");
+                }
+                else if (x == "Samsung") {
+                    mcst = parseInt("8500");
+                    lcst = parseInt("416000");
+                }
+                else if (x == "Motorola") {
+                    mcst = parseInt("11000");
+                    lcst = parseInt("31000");
+                }
+                else if (x == "Apple") {
+                    mcst = parseInt("70000");
+                    lcst = parseInt("260000");
+                }
+                if ($('.check1').is(':checked') == true) {
+                    tot1 = mcst * ($('.txt1').val());
+                }
+                if ($('.check2').is(':checked') == true) {
+                    tot2 = lcst * ($('.txt1').val());
+                }
+                var tot = parseInt(tot1) + parseInt(tot2);
+                alert("total cost:" + tot);
+            })
+        });
+    </script>
+</head>
+
+<body style="background-color: powderblue;">
+
+    <h1>Mobile and Laptop shop</h1>
+
+    <div style="height: 5ch;"> </div>
+
+    <div class="main">
+        <div class="drop" >
+
+            <div class="clr">
+                <span>Choose a brand</span>
+                <select id="color" name="color" class="clr">
+                    <option value="HP">HP</option>
+                    <option value="Nokia">Nokia</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Motorola">Motorola</option>
+                    <option value="Apple">Apple</option>
+                </select>
+            </div>
+
+            <div style="height: 5ch;"> </div>
+
+            <div class="check">
+                <input type="checkbox" name="default" class="check1">
+                <label>Mobiles</label>
+                <input type="checkbox" name="default" class="check2">
+                <label>Laptops</label>
+            </div>
+
+            <div style="height: 5ch;"> </div>
+
+            <div class="txt">
+                <label>Mobiles quantity</label>
+                <input type="number" name="text" class="txt1" placeholder="mobile quantity" value="1">
+                
+                <div style="height: 5ch;"> </div>
+
+                <label>laptops quantity</label>
+                <input type="number" name="text" class="txt2" placeholder="laptop quantity" value="1">
+           
+            </div>
+
+            <div style="height: 5ch;"> </div>
+
+            <button>
+                Produce bill
+            </button>
+        </div>
+        <div class="poster">
+            <div class="post">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Question1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#image1").animate({ left: '300px' },1000);
+                $("#table1").animate({ left: '300px' },1000);
+            })
+        });
+    </script>
+
+    <style>
+        table,
+        th,
+        td {
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height: 5ch;"></div>
+    <table id='table1' style="width: 50%;  position: relative">
+        <tr style="background-color: aqua;">
+            <th>Name</th>
+            <th>Section</th>
+            <th>roll no</th>
+        </tr>
+        <tr>
+            <td>Manik</td>
+            <td>C</td>
+            <td>12</td>
+        </tr>
+        <tr style="background-color: aqua;">
+            <td>Menaal</td>
+            <td>C</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>Harsha</td>
+            <td>C</td>
+            <td>14</td>
+        </tr>
+        <tr style="background-color: aqua;">
+            <td>Abhishek</td>
+            <td>C</td>
+            <td>15</td>
+        </tr>
+    </table>
+
+    <div style="height: 5ch;"> </div>
+
+    <img id='image1' src="image1.jpg" alt="image" style="height: 400px; width: 400px; position: relative;">
+
+    <div style="height: 10ch;"> </div>
+    <button >Click Me!</button>
+
+</body>
+
+</html>

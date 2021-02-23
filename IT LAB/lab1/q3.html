@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>lab1_2</title>
+    <link rel="stylesheet" type="text/css" href="s3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('button').click(function () {
+                var x = $('.clr option:selected').text();
+                $('.poster').css("background", x);
+                var y = $('.font option:selected').text();
+                $('.poster').css("font-family", y);
+                var z = $('.fsiz option:selected').text() + "px";
+                $('.poster').css("font-size", z);
+                var a = $('input[name=border]:checked', '.frm').val();
+                $('.poster').css("border", a);
+                if ($('.check1').is(":checked") == true) {
+                    $('.pic').css("display", "block");
+
+                }
+                var b = $('.txt1').val();
+                $('.post').html(b);
+            })
+        });
+    </script>
+    <style>
+        .main {
+            background-color: powderblue;
+            height: auto;
+            width: 100%;
+            margin: auto;
+            display: flex;
+        }
+
+        .span {
+            margin: auto;
+        }
+
+        .drop {
+            flex-basis: 40%;
+        }
+
+        .poster {
+            flex-basis: 40%;
+            height: 700px;
+            width: 700px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main" style="display: block;">
+        <div class="drop">
+            <div class="clr">
+                <span>Choose a color</span>
+                <select id="color" name="color">
+                    <option value="Red">Red</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Pink">Pink</option>
+                </select>
+            </div>
+
+            <div style="height: 2ch;"> </div>
+
+            <div class="font">
+                <span>Choose a font</span>
+                <select id="fnt" name="fnt">
+                    <option value="serif">serif</option>
+                    <option value="fantasy">fantasy</option>
+                    <option value="cursive">cursive</option>
+                </select>
+            </div>
+            <div style="height: 2ch;"> </div>
+            <div class="fsiz">
+                <span>Choose font size</span>
+                <select id="color" name="color">
+                    <option value="17">17</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                </select>
+            </div>
+            <div style="height: 2ch;"> </div>
+            <form class="frm">
+                <div class="bdr">
+                    <span>Select border style</span><br>
+                    <input type="radio" name="border" class="border" value="none">
+                    <label for="none">none</label><br>
+                    <input type="radio" name="border" class="border" value="Double">
+                    <label for="Double">Double</label><br>
+                    <input type="radio" name="border" class="border" value="Solid">
+                    <label for="Solid">Solid</label><br>
+                </div>
+            </form>
+            <div style="height: 2ch;"> </div>
+            <div class="check">
+                <input type="checkbox" name="default" class="check1">
+                <label>Add default picture</label>
+            </div>
+            <div style="height: 2ch;"> </div>
+            <div class="txt">
+                <input type="text" name="text" class="txt1">
+            </div>
+            <div style="height: 2ch;"> </div>
+            <button>
+                submit
+            </button>
+            <div style="height: 2ch;"> </div>
+        </div>
+        <div class="poster" align='center'; height='100px'>
+
+            <div class="post">
+
+            </div>
+            <div class="pic" align='center'>
+                <div style="height: 100px;"></div>
+                <img src="images.jpeg" width="200px" height="200px" coords=34,44,270,350>
+            </div>
+        </div>
+        <div style="height: 2ch;"> </div>
+    </div>
+</body>
+
+</html>

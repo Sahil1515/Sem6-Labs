@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      
+      $(document).ready(function(){
+
+        let val=""
+
+        $('button').click(function(){
+
+            // let quan=$('#fname').val()
+
+            val=('#box').val()
+            console.log(val)
+
+            $('#id1').click(function() {
+            val='+1000'+'*'+quan
+            console.log(val)
+            });
+
+            $('#id2').click(function() {
+            val='+1000'+'*'+quan
+            console.log(val)
+            });
+
+
+          }
+        )
+
+
+        
+
+
+       
+
+      })
+       
+        
+
+  
+
+    </script>
+  </head>
+<body>
+
+<h2>The select Element</h2>
+
+<p>The select element defines a drop-down list:</p>
+
+<form >
+  <label for="cars">Choose an item:</label>
+  <select id="box" name="cars">
+    <option value="1000">HP</option>
+    <option value="1100">Nokia</option>
+    <option value="1300">Samsung</option>
+    <option value="1400">Motorola</option>
+    <option value="1500">Apple</option>
+  </select>
+
+  <div style="height: 30px;"></div>
+
+  <input id ='id1' type="checkbox">
+  <label for="vehicle1"> Mobile</label><br>
+  <input id ='id2' type="checkbox">
+  <label for="vehicle2"> Laptop</label><br>
+
+  <div style="height: 30px;"></div>
+
+  <label for="fname">Quantity:</label>
+  <input type="text" id="fname" name="fname">
+
+
+  <div style="height: 30px;"></div>
+</form>
+
+<button>Produce Bill</button>
+
+</body>
+</html>

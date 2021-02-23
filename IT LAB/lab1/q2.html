@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+	<title>Question2</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(
+		function(){
+			var value1=""
+			console.log("hi")
+			$('button').click(function(evt){
+				var buttonValue=$(this).html();
+
+				if(buttonValue=='Clr')
+				{
+					$('input').val('')
+					value1=''
+				}
+				else if(buttonValue=='=')
+				{
+					let x=eval(value1)
+					$('input').val(x)
+				}
+				else{
+					console.log(typeof(buttonValue))
+					console.log(buttonValue)
+					value1+=buttonValue
+					console.log(value1)
+					$('input').val(value1)
+				}
+
+
+			})
+		}
+
+		);
+	</script>
+	<style>
+		 td{
+			/* border-collapse: collapse; */
+			background-color: aqua;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	
+<table border='1'>
+	<tr>
+		<td colspan="3" ><input id='txt' type="text" id='col'></td>
+		<td><button>Clr</button></td>
+	</tr>
+	<tr>
+		<td><button>1</button></td>
+		<td><button>2</button></td>
+		<td><button>3</button></td>
+		<td><button>4</button></td>
+	</tr>
+	<tr>
+		<td><button>5</button></td>
+		<td><button>6</button></td>
+		<td><button>7</button></td>
+		<td><button>8</button></td>
+	</tr>
+	<tr>
+		<td><button>9</button></td>
+		<td><button>0</button></td>
+		<td><button>+</button></td>
+		<td><button>-</button></td>
+	</tr>
+	<tr>
+		<td><button>*</button> </td>
+		<td><button>/</button></td>
+		<td><button>.</button> </td>
+		<td><button>=</button> </td>
+	</tr>
+
+</table>
+
+</body>
+</html>
