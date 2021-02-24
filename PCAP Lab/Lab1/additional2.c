@@ -27,15 +27,7 @@ int main(int argc, char *argv[])
             if(isPrime(i))
             {
                 printf("%d ",i);
-            }
-        }
-        
-    }
-    else{
-        for (int i = 50; i <=100; i++)
-        {
-            if(isPrime(i))
-            {
+            }rintf("%d ",i)
                 printf("%d ",i);
             }
         }
@@ -46,3 +38,4 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+rintf("%d ",i)
