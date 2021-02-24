@@ -19,3 +19,5 @@ int main(int argc,char *argv[])
     return 0;
 
 }
+
+//  mpicc prog1.c -lm -o prog1 && mpirun -np 4 ./prog1
