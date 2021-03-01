@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      var name = "",
+        email = "";
+
+      $(document).ready(function () {
+        $("#btnSubmit").click(function () {
+          name = $("#nameinput").val();
+          email = $("#emailinput").val();
+
+          $("#nameval").text("Name: " + name);
+          $("#emailval").text("Email: " + email);
+
+          $("#nameupdate").val(name);
+          $("#emailupdate").val(email);
+        });
+
+        $("#btnRead").click(() => {
+          $("#readname").text(name);
+          $("#reademail").text(email);
+        });
+
+        $("#btnUpdate").click(function () {
+          name = $("#nameupdate").val();
+          email = $("#emailupdate").val();
+
+          $("#nameval").text("Name: " + name);
+          $("#emailval").text("Email: " + email);
+
+          $("#nameupdate").val(name);
+          $("#emailupdate").val(email);
+        });
+
+        $("#btnDelete").click(() => {
+          name = "";
+          email = "";
+
+          $("#readname").text("");
+          $("#reademail").text("");
+          $("#nameinput").val("");
+          $("#emailinput").val("");
+          $("#nameupdate").val("");
+          $("#emailupdate").val("");
+        });
+      });
+    </script>
+  </head>
+  <body style="background-color: powderblue">
+    <div class="container">
+      <h3>Create</h3>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nameinput"
+            aria-describedby="emailHelp"
+            placeholder="Sahil Saini"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="emailinput"
+            aria-describedby="emailHelp"
+            placeholder="example@gmail.com"
+          />
+        </div>
+        <input
+          type="button"
+          class="btn btn-success btnSeccion"
+          id="btnSubmit"
+          value="Create"
+        />
+      </form>
+      <br />
+      <h6>Data:</h6>
+      <div class="container" id="data">
+        <p id="nameval">Name: No Data</p>
+        <p id="emailval">Email: No Data</p>
+      </div>
+      <h3>Read</h3>
+      <input
+        type="button"
+        class="btn btn-success btnSeccion"
+        id="btnRead"
+        value="Read Data"
+      />
+      <br /><br />
+      <div class="container" id="data">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="readname"></td>
+              <td id="reademail"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Update</h3>
+      <div class="container" id="data">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nameupdate"
+              aria-describedby="emailHelp"
+              placeholder=""
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="emailupdate"
+              aria-describedby="emailHelp"
+              placeholder=""
+            />
+          </div>
+          <input
+            type="button"
+            class="btn btn-success btnSeccion"
+            id="btnUpdate"
+            value="Update"
+          />
+        </form>
+      </div>
+      <br />
+      <h3>Delete</h3>
+      <input
+        type="button"
+        class="btn btn-success btnSeccion"
+        id="btnDelete"
+        value="Delete Data"
+      />
+      <br /><br />
+    </div>
+  </body>
+</html>
