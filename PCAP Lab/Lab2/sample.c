@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
         printf("Enter the integer value in main process:\n");
         scanf("%d",&ele);
         MPI_Send(&ele,1,MPI_INT,1,1,MPI_COMM_WORLD);
-
     }
     else{
         int ele2;
