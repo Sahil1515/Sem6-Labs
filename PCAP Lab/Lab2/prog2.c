@@ -17,8 +17,10 @@ int main(int argc, char *argv[])
 
     if (rank == 0)
     {
-        printf("Number sent from the master!\n");
+        printf("Enter number in master:\n");
         scanf("%d",&ele);
+        
+        printf("Number sent from the master!\n");
         for (int i = 1; i < size; i++)
         {
             MPI_Send(&ele, 1, MPI_INT, i, i, MPI_COMM_WORLD);

@@ -1,0 +1,15 @@
+
+)ser(tnirp
+)po,b,a(rotaluclac=ser
+)" :) * - + :tnih( od ot noitarepO retnE"(tupni_war=po
+)":rebmun dnoces retnE"(tupni=b
+)":rebmun tsrif retnE"(tupni=a
+
+]po[rehctiws nruter    
+}    
+,b-a:'-'        
+,b+a:'+'        
+,b/a:'//'        
+,b*a:'*'        
+{=rehctiws    
+:)po,b,a(rotaluclac fed
