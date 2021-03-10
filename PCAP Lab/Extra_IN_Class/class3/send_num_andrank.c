@@ -28,7 +28,10 @@ int main(int argc, char *argv[])
         
         for (int i = 1; i < size; i++)
         {
-            MPI_Recv(&arr[i], 1, MPI_INT, i, 2, MPI_COMM_WORLD, &status);
+            MPI_Recv(&arr[i], 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+            printf("From rank %d\n",status.MPI_SOURCE);
+            printf("Tag %d\n",status.MPI_TAG);
+
         }
 
         for (int i = 1; i < size; i++)
@@ -41,8 +44,13 @@ int main(int argc, char *argv[])
             int ele;
             MPI_Recv(&ele, 1, MPI_INT, 0, rank, MPI_COMM_WORLD, &status);
             ele=ele+rank;
-
+            
+            if(rank%2)
             MPI_Send(&ele, 1, MPI_INT, 0, 2, MPI_COMM_WORLD);
+            else
+            MPI_Send(&ele, 1, MPI_INT, 0, 4, MPI_COMM_WORLD); //To demonstrate any tag
+
+
     }
     MPI_Finalize();
     return 0;
