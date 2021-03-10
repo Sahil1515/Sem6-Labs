@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Index Page</title>
+    <script> 
+        function myfunc(){
+            const mydata="{{data|safe}}";
+            alert(mydata)
+        document.getElementById('exampleFormControlTextarea1').innerHTML("Data")
+        }
+    </script>
+
+</head>
+
+<body class="bg-dark">
+    <div class="container" style="text-align: center;">
+        <h1 class="text-light">Form</h1>
+    </div>
+    <div class="container text-light ">
+        <form method="POST">
+            {%csrf_token%}
+            <div class="form-group">
+                <label for="inputAddress">Name</label>
+                <input type="text" class="form-control" value="" id="name" name ='name' placeholder="Sahil">
+            </div>
+
+            <div class="form-group">
+                <label for="inputAddress">Date of birth</label>
+                <input type="date" class="form-control" id="dob" name ='dob' placeholder="1234 Main St">
+            </div>
+
+            <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
+            </div>
+
+            <div class="form-group">
+                <label for="inputAddress">Contact</label>
+                <input type="number" class="form-control" id="contact" name="contact" placeholder="+91xxxxxxxx">
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">English</label>
+                    <input type="text" class="form-control" id="english" name="english" placeholder="99">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Physics</label>
+                    <input type="text" class="form-control" id="physics" name="physics" placeholder="99">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Chemistry</label>
+                    <input type="text" class="form-control" id="chemistry" name="chemistry" placeholder="99">
+                </div>
+
+            </div>
+
+
+
+
+            <button type="submit" class="btn btn-primary">Sign in</button>
+            <div style="height: 30px;"></div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
