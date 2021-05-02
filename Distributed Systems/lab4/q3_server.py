@@ -1,7 +1,7 @@
 import socket
 
-HOST = '172.16.58.54' 
-PORT = 2003
+HOST = '10.146.3.191' 
+PORT = 9991
 s = socket.socket()
 s.bind((HOST, PORT))
 s.listen()
