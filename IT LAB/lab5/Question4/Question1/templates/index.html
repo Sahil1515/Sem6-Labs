@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Index Page</title>
+    <script>
+        const colorButtons = [...document.querySelectorAll('.colorButton')];
+        document.addEventListener('click', e => {
+            if (!colorButtons.includes(e.target)) return;
+            document.body.style.background = e.target.textContent;
+        });
+
+        $(document).ready(function () {
+            $("button").click(function () {
+
+                var num1 = $("#num1").val()
+                var num2 = $("#num2").val()
+
+                var Operator = $("#op").val()
+                var res = eval(num1 + Operator + num2)
+
+
+                // alert(Operator)
+                // alert(res)
+
+                $("#cont").val(res)
+
+                return false; // prevents submission
+                // $("textarea#ExampleMessage").html(result.exampleMessage)
+
+            });
+        });
+    </script>
+
+    <style>
+        button {
+            color: white;
+            border-radius: 15px;
+            border-width: 5px;
+            border-style: hidden;
+        }
+    </style>
+
+</head>
+
+<body class="bg-dark">
+    <div class="container" style="text-align: center;">
+        <h1 class="text-light">Magzine cover creator</h1>
+    </div>
+
+
+
+    <div style="height:30px"></div>
+
+    <div class="container text-light " style="padding-top: 30px;">
+        <label for="img" style="font-size: 20px;">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*">
+
+    </div>
+
+    <div class="container text-light " style="padding-top: 30px;">
+        <label for="img" style="font-size: 20px;">Select bg color:</label>
+
+        <button class="colorButton" style="background-color: blue;">Blue</button>
+        <button class="colorButton" style="background-color: red;">Red</button>
+        <button class="colorButton" style="background-color: green;">Green</button>
+        <button class="colorButton" style="background-color: orange;">Orange</button>
+        <button class="colorButton" style="background-color: pink;">Pink</button>
+        <button class="colorButton" style="background-color: purple;">Purple</button>
+        <button class="colorButton" style="background-color: brown;">Brown</button>
+        <button class="colorButton" style="background-color: black;">Black</button>
+        <button class="colorButton" style="background-color: gray;">Gray</button>
+
+    </div>
+    <div class="container text-light " style="padding-top: 30px;">
+        <label for="img" style="font-size: 20px;">Select text color:</label>
+
+        <button class="colorButton" style="background-color: blue;">Blue</button>
+        <button class="colorButton" style="background-color: red;">Red</button>
+        <button class="colorButton" style="background-color: green;">Green</button>
+        <button class="colorButton" style="background-color: orange;">Orange</button>
+        <button class="colorButton" style="background-color: pink;">Pink</button>
+        <button class="colorButton" style="background-color: purple;">Purple</button>
+        <button class="colorButton" style="background-color: brown;">Brown</button>
+        <button class="colorButton" style="background-color: black;">Black</button>
+        <button class="colorButton" style="background-color: gray;">Gray</button>
+
+    </div>
+
+    <div class="container text-light " style="padding-top: 30px;">
+        <label for="quantity">Select font size:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="30">
+    </div>
+
+
+
+    <div class="container text-light " style="padding-top: 30px;">
+        <button type="submit" class="btn btn-primary">Calculate</button>
+    </div>
+
+
+</body>
+
+</html>

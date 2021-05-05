@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Index Page</title>
+    <script>
+        const colorButtons = [...document.querySelectorAll('.colorButton')];
+        document.addEventListener('click', e => {
+            if (!colorButtons.includes(e.target)) return;
+            document.body.style.background = e.target.textContent;
+        });
+
+        $(document).ready(function () {
+            $("button").click(function () {
+
+                var num1 = $("#num1").val()
+                var num2 = $("#num2").val()
+
+                var Operator = $("#op").val()
+                var res = eval(num1 + Operator + num2)
+
+
+                // alert(Operator)
+                // alert(res)
+
+                $("#cont").val(res)
+
+                return false; // prevents submission
+                // $("textarea#ExampleMessage").html(result.exampleMessage)
+
+            });
+        });
+    </script>
+
+    <style>
+        button {
+            color: white;
+            border-radius: 15px;
+            border-width: 5px;
+            border-style: hidden;
+        }
+    </style>
+
+</head>
+
+<body class="bg-dark">
+    <div class="container" style="text-align: center;">
+        <h1 class="text-light">Magzine Cover </h1>
+    </div>
+
+
+
+</body>
+
+</html>

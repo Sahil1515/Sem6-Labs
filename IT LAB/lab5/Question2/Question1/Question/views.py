@@ -6,4 +6,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return render(request,'index.html',context=None)
+
+    array = [ "emp" + str(i) for i in range(15)]
+    context={'mylist': array}
+    return render(request,'index.html',context=context)

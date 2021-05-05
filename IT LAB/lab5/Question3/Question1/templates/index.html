@@ -1,3 +1,92 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Index Page</title>
+    <script>
+
+
+        $(document).ready(function () {
+            $("button").click(function () {
+
+                var num1 = $("#num1").val()
+                var num2 = $("#num2").val()
+
+                var Operator = $("#op").val()
+                var res = eval(num1 + Operator + num2)
+
+
+                // alert(Operator)
+                // alert(res)
+
+                $("#cont").val(res)
+
+                return false; // prevents submission
+                // $("textarea#ExampleMessage").html(result.exampleMessage)
+
+            });
+        });
+    </script>
+
+</head>
+
+<body class="bg-dark">
+    <div class="container" style="text-align: center;">
+        <h1 class="text-light">Form</h1>
+    </div>
+
+    <div class="container text-light ">
+        <label class='control-label'>Enter First Number </label>
+        <input type="text" name="cont_name" id="num1">
+    </div>
+    <div style="height:30px"></div>
+
+    <div class="container text-light ">
+        <label class='control-label'>Enter Second Number</label>
+        <input type="text" name="cont_name" id="num2">
+    </div>
+
+    <div style="height:30px"></div>
+
+    <div class="container text-light ">
+        <label for="Employee Ids">Operator:</label>
+        <select id="op" name="cars">
+            {% for i in mylist %}
+            <option style="background-color: wheat;">{{i}}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+
+
+
+
+    <div style="height:30px"></div>
+
+    <div class="container text-light ">
+        <button type="submit" class="btn btn-primary">Calculate</button>
+    </div>
+    <div style="height:30px"></div>
+
+
+    <div class="container text-light ">
+        <label for="exampleInputEmail1" class='control-label' id="cont_label">Result</label>
+        <input type="text" name="cont_name" id="cont">
+    </div>
+
+
+</body>
+
+</html> -->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +115,21 @@
                 
                 var per= ((eng+phy+che)/300)*100;
 
-                $("#exampleFormControlTextarea1").val(per);
+                $("#label1").html("Percentage "+per+"%");
+
+                var name = $("#name").val()
+                var dob = $("#dob").val()
+                var address = $("#address").val()
+                var contact = $("#contact").val()
+                var email = $("#email").val()
+
+                var stringRes="Name :"+name+"\n"+"Date of birth: "+dob+"\n"
+                            +"address: "+address+"\n"+
+                            "contact: "+contact+"\n"+
+                            "email: "+email;
+                
+                var email = $("#exampleFormControlTextarea1").val(stringRes)
+
                 return false; // prevents submission
                 // $("textarea#ExampleMessage").html(result.exampleMessage)
 
@@ -36,26 +139,25 @@
 
 </head>
 
-<body class="bg-dark">
+<body style="background-color:blue;">
     <div class="container" style="text-align: center;">
-        <h1 class="text-light">Form</h1>
+        <h1 class="text-light">Web Page</h1>
     </div>
     <div class="container text-light ">
         <form method="POST">
             {%csrf_token%}
             <div class="form-group">
                 <label for="inputAddress">Name</label>
-                <input type="text" class="form-control" value="" id="name" name='name' placeholder="Sahil">
-            </div>
-
+                <input type="text" class="form-control" value="" id="name" name='name' placeholder="Rohit">
+            </d
             <div class="form-group">
                 <label for="inputAddress">Date of birth</label>
-                <input type="date" class="form-control" id="dob" name='dob' placeholder="1234 Main St">
+                <input type="date" class="form-control" id="dob" name='dob' placeholder="Channi Himmat,Jammu">
             </div>
 
             <div class="form-group">
                 <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
+                <input type="text" class="form-control" id="address" name="address" placeholder="Channi Himmat,Jammu">
             </div>
 
             <div class="form-group">
@@ -75,15 +177,15 @@
 
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">English</label>
-                    <input type="text" class="form-control" id="english" name="english" placeholder="99">
+                    <input type="text" class="form-control" id="english" name="english" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Physics</label>
-                    <input type="text" class="form-control" id="physics" name="physics" placeholder="99">
+                    <input type="text" class="form-control" id="physics" name="physics" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Chemistry</label>
-                    <input type="text" class="form-control" id="chemistry" name="chemistry" placeholder="99">
+                    <input type="text" class="form-control" id="chemistry" name="chemistry" placeholder="">
                 </div>
 
             </div>
@@ -91,7 +193,7 @@
             <button type="submit" class="btn btn-primary" id="temp"> Get Percentage</button>
             <div style="height: 30px;"></div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1" id="label1" value="label2"> Example textarea</label>
+                <label for="exampleFormControlTextarea1" id="label1" value="label2"> </label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
         </form>
@@ -102,3 +204,4 @@
 </body>
 
 </html>
+
