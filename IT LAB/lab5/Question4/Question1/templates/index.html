@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,32 +12,65 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Index Page</title>
     <script>
-        const colorButtons = [...document.querySelectorAll('.colorButton')];
-        document.addEventListener('click', e => {
-            if (!colorButtons.includes(e.target)) return;
-            document.body.style.background = e.target.textContent;
-        });
 
         $(document).ready(function () {
-            $("button").click(function () {
+            $("#image_id").hide()
+            $(".first-txt").hide()
+            $(".second-txt").hide()
 
-                var num1 = $("#num1").val()
-                var num2 = $("#num2").val()
+            var bg_color = null
+            var text_color = null
+            var font_size = 10
+            var usertext = "This is magzine text"
 
-                var Operator = $("#op").val()
-                var res = eval(num1 + Operator + num2)
+            $(".colorButton1").click(function () {
+                bg_color = $(this).val()
+                $("#label_bg_color").html("Selected background color: " + bg_color)
+                $("#label_bg_color").css("color", bg_color)
+                return false; // prevents submission
+            });
+
+            $(".colorButton2").click(function () {
+                text_color = $(this).val()
+                $("#label_text_color").html("Selected background color: " + text_color)
+                $("#label_text_color").css("color", text_color)
+                return false; // prevents submission
+            });
+
+            $("#image_btn").click(function () {
+
+                var imageHtml = $("#img .accept").map(function () {
+                    return this.outerHTML;
+                }).get();
+
+                var temp = $("#quantity").val()
+                if (temp != "")
+                    font_size = temp
+                font_size = font_size + "px"
+
+                $("#image_id").css("background-color", bg_color);
+                usertext = $("#usertext1").val()
+                $(".first-txt").html(usertext)
+                $(".first-txt").css("color", text_color);
+                $(".first-txt").css("font-size", font_size);
+
+                usertext = $("#usertext2").val()
+                $(".second-txt").html(usertext)
+                $(".second-txt").css("color", "white");
 
 
-                // alert(Operator)
-                // alert(res)
-
-                $("#cont").val(res)
+                $("#image_id").show()
+                $(".first-txt").show()
+                $(".second-txt").show()
 
                 return false; // prevents submission
-                // $("textarea#ExampleMessage").html(result.exampleMessage)
-
             });
         });
+
+        var loadFile = function (event) {
+            var image = document.getElementById('image_id');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
     </script>
 
     <style>
@@ -44,6 +79,33 @@
             border-radius: 15px;
             border-width: 5px;
             border-style: hidden;
+        }
+
+        img {
+            border-radius: 20px;
+            border: 5px solid black;
+            height: 800px;
+            width: 600px;
+            padding: 50px;
+            background-color: red;
+        }
+
+        .first-txt {
+            font-size: 30px;
+            position: relative;
+            top: -700px;
+            right: -100px;
+            color: red;
+        }
+
+        .second-txt {
+            font-size: 30px;
+            position: relative;
+            top: -400px;
+            right: -100px;
+            color: red;
+            height: 300px;
+            width: 450px;
         }
     </style>
 
@@ -60,37 +122,45 @@
 
     <div class="container text-light " style="padding-top: 30px;">
         <label for="img" style="font-size: 20px;">Select image:</label>
-        <input type="file" id="img" name="img" accept="image/*">
+        <input type="file" id="img" onchange="loadFile(event)" name="img" accept="image/*">
+    </div>
+
+    <div id="div1" class="container text-light " style="padding-top: 30px;">
+        <label for="img" style="font-size: 20px;">Select bg color:</label>
+        <button class="colorButton1" style="background-color: blue;" value="blue">Blue</button>
+        <button class="colorButton1" style="background-color: red;" value="red">Red</button>
+        <button class="colorButton1" style="background-color: green;" value="green">Green</button>
+        <button class="colorButton1" style="background-color: orange;" value="orange">Orange</button>
+        <button class="colorButton1" style="background-color: pink;" value="pink">Pink</button>
+        <button class="colorButton1" style="background-color: purple;" value="purple">Purple</button>
+        <button class="colorButton1" style="background-color: brown;" value="brown">Brown</button>
+        <button class="colorButton1" style="background-color: black;" value="black">Black</button>
+        <button class="colorButton1" style="background-color: gray;" value="gray">Gray</button>
 
     </div>
 
     <div class="container text-light " style="padding-top: 30px;">
-        <label for="img" style="font-size: 20px;">Select bg color:</label>
-
-        <button class="colorButton" style="background-color: blue;">Blue</button>
-        <button class="colorButton" style="background-color: red;">Red</button>
-        <button class="colorButton" style="background-color: green;">Green</button>
-        <button class="colorButton" style="background-color: orange;">Orange</button>
-        <button class="colorButton" style="background-color: pink;">Pink</button>
-        <button class="colorButton" style="background-color: purple;">Purple</button>
-        <button class="colorButton" style="background-color: brown;">Brown</button>
-        <button class="colorButton" style="background-color: black;">Black</button>
-        <button class="colorButton" style="background-color: gray;">Gray</button>
-
+        <label id="label_bg_color" style="font-size: 20px;"></label>
     </div>
+
+
     <div class="container text-light " style="padding-top: 30px;">
         <label for="img" style="font-size: 20px;">Select text color:</label>
 
-        <button class="colorButton" style="background-color: blue;">Blue</button>
-        <button class="colorButton" style="background-color: red;">Red</button>
-        <button class="colorButton" style="background-color: green;">Green</button>
-        <button class="colorButton" style="background-color: orange;">Orange</button>
-        <button class="colorButton" style="background-color: pink;">Pink</button>
-        <button class="colorButton" style="background-color: purple;">Purple</button>
-        <button class="colorButton" style="background-color: brown;">Brown</button>
-        <button class="colorButton" style="background-color: black;">Black</button>
-        <button class="colorButton" style="background-color: gray;">Gray</button>
+        <button class="colorButton2" style="background-color: blue;" value="blue">Blue</button>
+        <button class="colorButton2" style="background-color: red;" value="red">Red</button>
+        <button class="colorButton2" style="background-color: green;" value="green">Green</button>
+        <button class="colorButton2" style="background-color: orange;" value="orange">Orange</button>
+        <button class="colorButton2" style="background-color: pink;" value="pink">Pink</button>
+        <button class="colorButton2" style="background-color: purple;" value="purple">Purple</button>
+        <button class="colorButton2" style="background-color: brown;" value="brown">Brown</button>
+        <button class="colorButton2" style="background-color: black;" value="black">Black</button>
+        <button class="colorButton2" style="background-color: gray;" value="gray">Gray</button>
 
+    </div>
+
+    <div class="container text-light " style="padding-top: 30px;">
+        <label id="label_text_color" style="font-size: 20px;"></label>
     </div>
 
     <div class="container text-light " style="padding-top: 30px;">
@@ -98,12 +168,31 @@
         <input type="number" id="quantity" name="quantity" min="1" max="30">
     </div>
 
-
-
     <div class="container text-light " style="padding-top: 30px;">
-        <button type="submit" class="btn btn-primary">Calculate</button>
+        <label for="texta">Enter the heading:</label><br>
+        <textarea id="usertext1" name="texta" cols="30" rows="2"></textarea>
     </div>
 
+    <div class="container text-light " style="padding-top: 30px;">
+        <label for="texta">Enter the text:</label><br>
+        <textarea id="usertext2" name="texta" cols="30" rows="5"></textarea>
+    </div>
+
+    <div class="container text-light " style="padding-top: 30px;">
+        <button id="image_btn" type="submit" class="btn btn-primary">Generate cover</button>
+    </div>
+
+    <div class="container text-light " style="padding: 50px;">
+        <img id="image_id" class="centered" />
+        <h3 class="first-txt">
+            Elon Musk
+        </h3>
+
+        <h3 class="second-txt">
+            His Biography
+        </h3>
+
+    </div>
 
 </body>
 

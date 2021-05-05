@@ -19,5 +19,6 @@ import Question
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('magzine/',include('Question.urls')),
     path('', include('Question.urls')),
 ]
