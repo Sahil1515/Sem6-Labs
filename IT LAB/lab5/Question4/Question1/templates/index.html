@@ -21,7 +21,7 @@
             var bg_color = null
             var text_color = null
             var font_size = 10
-            var usertext = "This is magzine text"
+            var usertext = "This is Magazine text"
 
             $(".colorButton1").click(function () {
                 bg_color = $(this).val()
@@ -32,7 +32,7 @@
 
             $(".colorButton2").click(function () {
                 text_color = $(this).val()
-                $("#label_text_color").html("Selected background color: " + text_color)
+                $("#label_text_color").html("Selected text color: " + text_color)
                 $("#label_text_color").css("color", text_color)
                 return false; // prevents submission
             });
@@ -107,92 +107,128 @@
             height: 300px;
             width: 450px;
         }
+
+        .flex-container {
+            width: 80%;
+            min-height: 300px;
+            margin: 0 auto;
+            display: -webkit-flex;
+            /* Safari */
+            display: flex;
+            /* Standard syntax */
+        }
+
+        .flex-container .column {
+            padding: 10px;
+            /* background: #dbdfe5; */
+            -webkit-flex: 1;
+            /* Safari */
+            -ms-flex: 1;
+            /* IE 10 */
+            flex: 1;
+            /* Standard syntax */
+        }
+
+        .flex-container .column.bg-alt {
+            /* background: #b4bac0; */
+        }
     </style>
 
 </head>
 
 <body class="bg-dark">
     <div class="container" style="text-align: center;">
-        <h1 class="text-light">Magzine cover creator</h1>
+        <h1 class="text-light">Magazine cover creator</h1>
     </div>
 
 
 
-    <div style="height:30px"></div>
+    <div class="flex-container">
+        <div class="column">
+            <div style="height:30px"></div>
 
-    <div class="container text-light " style="padding-top: 30px;">
-        <label for="img" style="font-size: 20px;">Select image:</label>
-        <input type="file" id="img" onchange="loadFile(event)" name="img" accept="image/*">
+            <div class="container text-light " style="padding-top: 30px;">
+                <label for="img" style="font-size: 20px;">Select image:</label>
+                <input type="file" id="img" onchange="loadFile(event)" name="img" accept="image/*">
+            </div>
+
+            <div id="div1" class="container text-light " style="padding-top: 30px;">
+                <label for="img" style="font-size: 20px;">Select bg color:</label>
+                <button class="colorButton1" style="background-color: blue;" value="blue">Blue</button>
+                <button class="colorButton1" style="background-color: red;" value="red">Red</button>
+                <button class="colorButton1" style="background-color: green;" value="green">Green</button>
+                <button class="colorButton1" style="background-color: orange;" value="orange">Orange</button>
+                <button class="colorButton1" style="background-color: pink;" value="pink">Pink</button>
+                <button class="colorButton1" style="background-color: purple;" value="purple">Purple</button>
+                <button class="colorButton1" style="background-color: brown;" value="brown">Brown</button>
+                <button class="colorButton1" style="background-color: black;" value="black">Black</button>
+                <button class="colorButton1" style="background-color: gray;" value="gray">Gray</button>
+
+            </div>
+
+            <div class="container text-light " style="padding-top: 30px;">
+                <label id="label_bg_color" style="font-size: 20px;"></label>
+            </div>
+
+
+            <div class="container text-light " style="padding-top: 30px;">
+                <label for="img" style="font-size: 20px;">Select text color:</label>
+
+                <button class="colorButton2" style="background-color: blue;" value="blue">Blue</button>
+                <button class="colorButton2" style="background-color: red;" value="red">Red</button>
+                <button class="colorButton2" style="background-color: green;" value="green">Green</button>
+                <button class="colorButton2" style="background-color: orange;" value="orange">Orange</button>
+                <button class="colorButton2" style="background-color: pink;" value="pink">Pink</button>
+                <button class="colorButton2" style="background-color: purple;" value="purple">Purple</button>
+                <button class="colorButton2" style="background-color: brown;" value="brown">Brown</button>
+                <button class="colorButton2" style="background-color: black;" value="black">Black</button>
+                <button class="colorButton2" style="background-color: gray;" value="gray">Gray</button>
+
+            </div>
+
+            <div class="container text-light " style="padding-top: 30px;">
+                <label id="label_text_color" style="font-size: 20px;"></label>
+            </div>
+
+            <div class="container text-light " style="padding-top: 30px;">
+                <label for="quantity">Select font size:</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="30">
+            </div>
+
+            <div class="container text-light " style="padding-top: 30px;">
+                <label for="texta">Enter the heading:</label><br>
+                <textarea id="usertext1" name="texta" cols="30" rows="2"></textarea>
+            </div>
+
+            <div class="container text-light " style="padding-top: 30px;">
+                <label for="texta">Enter the text:</label><br>
+                <textarea id="usertext2" name="texta" cols="30" rows="5"></textarea>
+            </div>
+
+            <div class="container text-light " style="padding-top: 30px;">
+                <button id="image_btn" type="submit" class="btn btn-primary">Generate cover</button>
+            </div>
+        </div>
+
+        <div class="column bg-alt">
+
+            <div class="container text-light " style="padding: 50px;">
+                <img id="image_id" class="centered" />
+                <h3 class="first-txt">
+                    Elon Musk
+                </h3>
+
+                <h3 class="second-txt">
+                    His Biography
+                </h3>
+
+            </div>
+        </div>
     </div>
 
-    <div id="div1" class="container text-light " style="padding-top: 30px;">
-        <label for="img" style="font-size: 20px;">Select bg color:</label>
-        <button class="colorButton1" style="background-color: blue;" value="blue">Blue</button>
-        <button class="colorButton1" style="background-color: red;" value="red">Red</button>
-        <button class="colorButton1" style="background-color: green;" value="green">Green</button>
-        <button class="colorButton1" style="background-color: orange;" value="orange">Orange</button>
-        <button class="colorButton1" style="background-color: pink;" value="pink">Pink</button>
-        <button class="colorButton1" style="background-color: purple;" value="purple">Purple</button>
-        <button class="colorButton1" style="background-color: brown;" value="brown">Brown</button>
-        <button class="colorButton1" style="background-color: black;" value="black">Black</button>
-        <button class="colorButton1" style="background-color: gray;" value="gray">Gray</button>
-
-    </div>
-
-    <div class="container text-light " style="padding-top: 30px;">
-        <label id="label_bg_color" style="font-size: 20px;"></label>
-    </div>
 
 
-    <div class="container text-light " style="padding-top: 30px;">
-        <label for="img" style="font-size: 20px;">Select text color:</label>
 
-        <button class="colorButton2" style="background-color: blue;" value="blue">Blue</button>
-        <button class="colorButton2" style="background-color: red;" value="red">Red</button>
-        <button class="colorButton2" style="background-color: green;" value="green">Green</button>
-        <button class="colorButton2" style="background-color: orange;" value="orange">Orange</button>
-        <button class="colorButton2" style="background-color: pink;" value="pink">Pink</button>
-        <button class="colorButton2" style="background-color: purple;" value="purple">Purple</button>
-        <button class="colorButton2" style="background-color: brown;" value="brown">Brown</button>
-        <button class="colorButton2" style="background-color: black;" value="black">Black</button>
-        <button class="colorButton2" style="background-color: gray;" value="gray">Gray</button>
-
-    </div>
-
-    <div class="container text-light " style="padding-top: 30px;">
-        <label id="label_text_color" style="font-size: 20px;"></label>
-    </div>
-
-    <div class="container text-light " style="padding-top: 30px;">
-        <label for="quantity">Select font size:</label>
-        <input type="number" id="quantity" name="quantity" min="1" max="30">
-    </div>
-
-    <div class="container text-light " style="padding-top: 30px;">
-        <label for="texta">Enter the heading:</label><br>
-        <textarea id="usertext1" name="texta" cols="30" rows="2"></textarea>
-    </div>
-
-    <div class="container text-light " style="padding-top: 30px;">
-        <label for="texta">Enter the text:</label><br>
-        <textarea id="usertext2" name="texta" cols="30" rows="5"></textarea>
-    </div>
-
-    <div class="container text-light " style="padding-top: 30px;">
-        <button id="image_btn" type="submit" class="btn btn-primary">Generate cover</button>
-    </div>
-
-    <div class="container text-light " style="padding: 50px;">
-        <img id="image_id" class="centered" />
-        <h3 class="first-txt">
-            Elon Musk
-        </h3>
-
-        <h3 class="second-txt">
-            His Biography
-        </h3>
-
-    </div>
 
 </body>
 
